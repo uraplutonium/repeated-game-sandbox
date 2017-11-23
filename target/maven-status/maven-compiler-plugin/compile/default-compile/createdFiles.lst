@@ -1,3 +1,9 @@
 rgs/sandbox/Sandbox.class
-rgs/game/IBaseGame.class
-rgs/game/IRepeatedGame.class
+rgs/player/Selfishman.class
+rgs/player/IPlayer.class
+rgs/game/PayoffMatrix.class
+rgs/player/Globalist.class
+rgs/game/AStageGame.class
+rgs/game/IStageGame.class
+rgs/player/APlayer.class
+rgs/game/PrisonersDilemma.class
