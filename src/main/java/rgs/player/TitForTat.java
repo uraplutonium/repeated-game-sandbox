@@ -6,31 +6,16 @@ import rgs.sandbox.Sandbox;
 import rgs.game.IStageGame;
 import rgs.game.PayoffMatrix;
 
-public class TitForTat extends APlayer {
+public class TitForTat extends Globalist {
 
-    private static int commonAction = -1;
-    
     public TitForTat() {
 	super("TitForTat");
     }
     
     public int act(int opnID) {
 	if(commonAction == -1) {
-	    IStageGame sGame = Sandbox.getStageGame();
-	    PayoffMatrix payoffMatrix = sGame.getPayoffMatrix();
-	    int d = sGame.actionDimension();
-	    int globalScore[] = new int[d]; // records the scores including mine and my opponent's under each possible action
-	    int maxGlobalScore = -1;
-	    for(int a=0; a<d; a++) { // try every possible actions
-		// if I took action a
-		for(int b=0; b<d; b++)
-		    globalScore[a] += (payoffMatrix.matrix[a][b][0] + payoffMatrix.matrix[a][b][1]); // we care about all people
-		if(globalScore[a] > maxGlobalScore) {
-		    commonAction = a;
-		    maxGlobalScore = globalScore[a];
-		}
-	    }
-	    System.out.println("TitForTat: I will do '" + commonAction + "' (" + maxGlobalScore + ") for our common benifits at first, and will revenge if you betray me." );
+	    computeCommonAction();
+	    System.out.println("TitForTat: I will do '" + commonAction + "' for our common benifits at first, and will revenge if you betray me." );
 	}
 	
 	List<Integer[]> history = Sandbox.getHistory(getID());
