@@ -2,6 +2,7 @@ rgs/sandbox/Sandbox.class
 rgs/player/Selfishman.class
 rgs/player/IPlayer.class
 rgs/game/PayoffMatrix.class
+rgs/player/TitForTat.class
 rgs/player/Globalist.class
 rgs/game/AStageGame.class
 rgs/game/IStageGame.class

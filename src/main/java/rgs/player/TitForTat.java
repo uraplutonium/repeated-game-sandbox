@@ -1,18 +1,20 @@
 package rgs.player;
 
+import java.util.List;
+
 import rgs.sandbox.Sandbox;
 import rgs.game.IStageGame;
 import rgs.game.PayoffMatrix;
 
 public class TitForTat extends APlayer {
 
+    private static int commonAction = -1;
+    
     public TitForTat() {
 	super("TitForTat");
     }
     
     public int act(int opnID) {
-	List<Integer[]> history = Sandbox.getHistory();
-	
 	if(commonAction == -1) {
 	    IStageGame sGame = Sandbox.getStageGame();
 	    PayoffMatrix payoffMatrix = sGame.getPayoffMatrix();
@@ -28,9 +30,29 @@ public class TitForTat extends APlayer {
 		    maxGlobalScore = globalScore[a];
 		}
 	    }
-	    System.out.println("Globalist: The Global Union conclude that action '" + commonAction + "' (" + maxGlobalScore + ") fits the common wealth of all people." );
+	    System.out.println("TitForTat: I will do '" + commonAction + "' (" + maxGlobalScore + ") for our common benifits at first, and will revenge if you betray me." );
 	}
-	return commonAction;
+	
+	List<Integer[]> history = Sandbox.getHistory(getID());
+	if(history.size() == 0) {
+	    return commonAction;
+	} else {
+	    int lastOpnAct = -1;
+	    for(int i=history.size() - 1; i>=0; i--) {
+		Integer[] result = history.get(i);
+		if(result[1] == opnID) {
+		    lastOpnAct = result[3];
+		    break;
+		} else if(result[2] == opnID) {
+		    lastOpnAct = result[4];
+		    break;
+		}
+	    }
+	    return lastOpnAct == -1 ? commonAction : lastOpnAct;
+	}
     }
     
+    public IPlayer duplicate() {
+	return new TitForTat();
+    }
 }

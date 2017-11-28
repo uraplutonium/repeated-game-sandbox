@@ -33,4 +33,8 @@ public class Globalist extends APlayer {
 	return commonAction;
     }
     
+    public IPlayer duplicate() {
+	return new Globalist();
+    }
+
 }

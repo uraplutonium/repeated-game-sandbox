@@ -5,5 +5,6 @@
 /media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/game/PrisonersDilemma.java
 /media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/player/Globalist.java
 /media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/player/IPlayer.java
+/media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/player/TitForTat.java
 /media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/player/Selfishman.java
 /media/uraplutonium/Workstation/Workspace/repeated-game-sandbox/src/main/java/rgs/player/APlayer.java

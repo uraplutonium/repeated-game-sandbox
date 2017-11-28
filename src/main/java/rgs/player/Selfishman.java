@@ -33,4 +33,7 @@ public class Selfishman extends APlayer {
 	return commonAction;
     }
     
+    public IPlayer duplicate() {
+	return new Selfishman();
+    }
 }

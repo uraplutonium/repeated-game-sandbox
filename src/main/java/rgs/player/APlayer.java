@@ -23,11 +23,16 @@ public abstract class APlayer implements IPlayer {
     public final int getID () {
 	return ID;
     }
-
+    
+    @Override
+    public boolean sameTypeWith(IPlayer p) {
+	return this.alias.equals(((APlayer)p).alias);
+    }
+    
     @Override
     public String toString() {
 	String str = alias;
-	str = str + "_" + ID;
+	str = str + ", " + ID;
 	return str;
     }
 
